@@ -13,7 +13,7 @@
 
 ### Bug Fixes
 
-- Fixed shell completion argument handling by iterating directly over the completions array in bash completion and by quoting and escaping non-first arguments in fish completion requests.
+- Corrected shell completion argument handling by iterating directly over the completions array in bash completion and by quoting and escaping non-first arguments in fish completion requests.
 
 ### Additional Changes
 
