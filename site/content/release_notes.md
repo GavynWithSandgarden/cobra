@@ -18,6 +18,6 @@
 ### Additional Changes
 
 - Updated `github.com/spf13/pflag` to v1.0.9 and replaced `ParseErrorsWhitelist` with `ParseErrorsAllowlist`.
-- Updated static formatting defaults by converting `minUsagePadding` and other fixed values from variables to `const`.
-- Updated CI and dependencies by switching to `actions/setup-go` v6 and `go.yaml.in/yaml/v3`.
+- Updated static formatting defaults by converting fixed template and padding values from variables to `const`.
+- Updated CI and dependencies by switching to `actions/setup-go` v6 and by migrating from `gopkg.in/yaml.v3` to `go.yaml.in/yaml/v3`.
 - Updated `.golangci.yml` to disable the `govet` build tag check to support dual build tag syntax.
