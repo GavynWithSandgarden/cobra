@@ -2,7 +2,7 @@
 
 ## v1.9.0: completion and dependency updates
 
-**Date:** 0001-01-01  
+**Date:** 0001-01-01
 **Version:** 1.9.0
 
 **Summary:** This release includes updates to shell completion behavior, documentation coverage, and dependency and tooling configuration.
