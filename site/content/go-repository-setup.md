@@ -1,110 +1,63 @@
-# Go repository setup
+# Go repository setup (Cobra)
 
-This page describes a minimal, repeatable setup for a Go repository.
+This page describes how to set up a local working copy of the `github.com/spf13/cobra` Go module.
 
 ## Prerequisites
 
 - `go`
 - `git`
 
-## Initialize the repository
+## Clone the repository
 
-1. Create and enter a new directory.
-
-   ```console
-   mkdir example
-   cd example
-   ```
-
-1. Initialize a Git repository.
+1. Clone the repository.
 
    ```console
-   git init
+   git clone https://github.com/spf13/cobra
    ```
 
-## Initialize the Go module
-
-1. Create a Go module.
+1. Enter the repository directory.
 
    ```console
-   go mod init example.com/example
+   cd cobra
    ```
 
-1. Verify that `go.mod` exists and has a `module` line.
+## Verify module metadata
+
+1. Open `go.mod`.
+
+1. Confirm the module path.
 
    ```text
-   module example.com/example
+   module github.com/spf13/cobra
    ```
 
-## Add a minimal program
+1. Confirm the Go version directive.
 
-1. Create `main.go`.
-
-   ```go
-   package main
-
-   import "fmt"
-
-   func main() {
-   	fmt.Println("hello")
-   }
+   ```text
+   go 1.15
    ```
 
-1. Build the program.
+## Run tests
 
-   ```console
-   go build ./...
-   ```
-
-1. Run the program.
-
-   ```console
-   go run .
-   ```
-
-## Add tests
-
-1. Create `main_test.go`.
-
-   ```go
-   package main
-
-   import "testing"
-
-   func TestMain(t *testing.T) {
-   	// Minimal placeholder test.
-   }
-   ```
-
-1. Run tests.
+1. Execute tests.
 
    ```console
    go test ./...
    ```
 
-## Apply common project hygiene
-
-1. Format code.
+1. Execute the project test target.
 
    ```console
-   gofmt -w .
+   make test
    ```
 
-1. Commit the initial baseline.
+## Run all checks
+
+1. Execute the full project target.
 
    ```console
-   git add .
-   git commit -m "initialize module"
+   make all
    ```
-
-## Repository-specific notes (this repository)
-
-- Module path in `go.mod`: `github.com/spf13/cobra`
-- `go.mod` declares `go 1.15`.
-- Test commands referenced in `CONTRIBUTING.md`:
-  - `go test ./...`
-  - `make test`
-  - `make all`
 
 ## Related pages
 
