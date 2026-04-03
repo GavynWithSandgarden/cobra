@@ -1,64 +1,64 @@
-# Go repository setup (Cobra)
+# Configuración del repositorio Go (Cobra)
 
-This page describes how to set up a local working copy of the `github.com/spf13/cobra` Go module.
+Esta página describe cómo configurar una copia de trabajo local del módulo Go `github.com/spf13/cobra`.
 
-## Prerequisites
+## Requisitos previos
 
 - `go`
 - `git`
 
-## Clone the repository
+## Clonar el repositorio
 
-1. Clone the repository.
+1. Clonar el repositorio.
 
    ```console
    git clone https://github.com/spf13/cobra
    ```
 
-1. Enter the repository directory.
+1. Entrar en el directorio del repositorio.
 
    ```console
    cd cobra
    ```
 
-## Verify module metadata
+## Verificar los metadatos del módulo
 
-1. Open `go.mod`.
+1. Abrir `go.mod`.
 
-1. Confirm the module path.
+1. Confirmar la ruta del módulo.
 
    ```text
    module github.com/spf13/cobra
    ```
 
-1. Confirm the Go version directive.
+1. Confirmar la directiva de versión de Go.
 
    ```text
    go 1.15
    ```
 
-## Run tests
+## Ejecutar pruebas
 
-1. Execute tests.
+1. Ejecutar las pruebas.
 
    ```console
    go test ./...
    ```
 
-1. Execute the project test target.
+1. Ejecutar el objetivo de pruebas del proyecto.
 
    ```console
    make test
    ```
 
-## Run all checks
+## Ejecutar todas las comprobaciones
 
-1. Execute the full project target.
+1. Ejecutar el objetivo completo del proyecto.
 
    ```console
    make all
    ```
 
-## Related pages
+## Páginas relacionadas
 
-- Cobra user guide: [User Guide](./user_guide.md)
+- Guía de usuario de Cobra: [User Guide](./user_guide.md)
