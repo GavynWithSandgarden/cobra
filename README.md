@@ -1,133 +1,110 @@
-<div align="center">
-<a href="https://cobra.dev">
-<img width="512" height="535" alt="cobra-logo" src="https://github.com/user-attachments/assets/c8bf9aad-b5ae-41d3-8899-d83baec10af8" />
-</a>
-</div>
 
-Cobra is a library for creating powerful modern CLI applications.
+Cobra es una biblioteca para crear potentes y modernas aplicaciones de línea de comandos (CLI).
 
-<a href="https://cobra.dev">Visit Cobra.dev for extensive documentation</a> 
+Visita Cobra.dev para documentación detallada de Cobra.
 
 
-Cobra is used in many Go projects such as [Kubernetes](https://kubernetes.io/),
-[Hugo](https://gohugo.io), and [GitHub CLI](https://github.com/cli/cli) to
-name a few. [This list](site/content/projects_using_cobra.md) contains a more extensive list of projects using Cobra.
+Cobra se utiliza en muchos proyectos de Go, como Kubernetes,
+Hugo y GitHub CLI, entre otros.
+[Esta lista](site/content/projects_using_cobra.md) contiene un listado más amplio de proyectos que usan Cobra.
 
-[![](https://img.shields.io/github/actions/workflow/status/spf13/cobra/test.yml?branch=main&longCache=true&label=Test&logo=github%20actions&logoColor=fff)](https://github.com/spf13/cobra/actions?query=workflow%3ATest)
-[![Go Reference](https://pkg.go.dev/badge/github.com/spf13/cobra.svg)](https://pkg.go.dev/github.com/spf13/cobra)
-[![Go Report Card](https://goreportcard.com/badge/github.com/spf13/cobra)](https://goreportcard.com/report/github.com/spf13/cobra)
-[![Slack](https://img.shields.io/badge/Slack-cobra-brightgreen)](https://gophers.slack.com/archives/CD3LP1199)
-<hr>
-<div align="center" markdown="1">
-   <sup>Supported by:</sup>
-   <br>
-   <br>
-   <a href="https://www.warp.dev/cobra">
-      <img alt="Warp sponsorship" width="400" src="https://github.com/user-attachments/assets/ab8dd143-b0fd-4904-bdc5-dd7ecac94eae">
-   </a>
-
-### [Warp, the AI terminal for devs](https://www.warp.dev/cobra)
-[Try Cobra in Warp today](https://www.warp.dev/cobra)<br>
-
-</div>
 <hr>
 
-# Overview
+# Descripción general
 
-Cobra is a library providing a simple interface to create powerful modern CLI
-interfaces similar to git & go tools.
+Cobra es una biblioteca que proporciona una interfaz sencilla para crear potentes y modernas interfaces de línea de comandos (CLI)
+similares a las herramientas `git` y `go`.
 
-Cobra provides:
-* Easy subcommand-based CLIs: `app server`, `app fetch`, etc.
-* Fully POSIX-compliant flags (including short & long versions)
-* Nested subcommands
-* Global, local and cascading flags
-* Intelligent suggestions (`app srver`... did you mean `app server`?)
-* Automatic help generation for commands and flags
-* Grouping help for subcommands
-* Automatic help flag recognition of `-h`, `--help`, etc.
-* Automatically generated shell autocomplete for your application (bash, zsh, fish, powershell)
-* Automatically generated man pages for your application
-* Command aliases so you can change things without breaking them
-* The flexibility to define your own help, usage, etc.
-* Optional seamless integration with [viper](https://github.com/spf13/viper) for 12-factor apps
+Cobra proporciona:
+* CLI basadas en subcomandos de forma sencilla: `app server`, `app fetch`, etc.
+* Flags totalmente compatibles con POSIX (incluidas las versiones cortas y largas).
+* Subcomandos anidados.
+* Flags globales, locales y en cascada.
+* Sugerencias inteligentes (`app srver`... ¿quiso decir `app server`?).
+* Generación automática de ayuda para comandos y flags.
+* Agrupación de la ayuda para subcomandos.
+* Reconocimiento automático de flags de ayuda como `-h`, `--help`, etc.
+* Autocompletado de shell generado automáticamente para tu aplicación (bash, zsh, fish, PowerShell).
+* Páginas de _man_ generadas automáticamente para tu aplicación.
+* Alias de comandos para que puedas cambiar cosas sin romper la compatibilidad.
+* Flexibilidad para definir tu propia ayuda, uso, etc.
+* Integración opcional y transparente con la biblioteca `viper` para aplicaciones de 12 factores.
 
-# Concepts
+# Conceptos
 
-Cobra is built on a structure of commands, arguments & flags.
+Cobra se basa en una estructura de comandos, argumentos y flags.
 
-**Commands** represent actions, **Args** are things and **Flags** are modifiers for those actions.
+**Commands** (comandos) representan acciones, **Args** (argumentos) son cosas y **Flags** (banderas) son modificadores de esas acciones.
 
-The best applications read like sentences when used, and as a result, users
-intuitively know how to interact with them.
+Las mejores aplicaciones se leen como frases cuando se usan y, como resultado,
+las personas saben de forma intuitiva cómo interactuar con ellas.
 
-The pattern to follow is
+El patrón a seguir es
 `APPNAME VERB NOUN --ADJECTIVE`
-    or
+    o
 `APPNAME COMMAND ARG --FLAG`.
 
-A few good real world examples may better illustrate this point.
+Algunos buenos ejemplos del mundo real pueden ilustrar mejor este punto.
 
-In the following example, 'server' is a command, and 'port' is a flag:
+En el siguiente ejemplo, `server` es un comando y `port` es un flag:
 
     hugo server --port=1313
 
-In this command we are telling Git to clone the url bare.
+En este comando le estamos diciendo a Git que clone la URL en modo _bare_.
 
     git clone URL --bare
 
-## Commands
+## Comandos
 
-Command is the central point of the application. Each interaction that
-the application supports will be contained in a Command. A command can
-have children commands and optionally run an action.
+`Command` es el punto central de la aplicación. Cada interacción que
+la aplicación admite estará contenida en un `Command`. Un comando puede
+tener comandos hijo y opcionalmente ejecutar una acción.
 
-In the example above, 'server' is the command.
+En el ejemplo anterior, `server` es el comando.
 
-[More about cobra.Command](https://pkg.go.dev/github.com/spf13/cobra#Command)
+Para más información, consulta la documentación de `cobra.Command` en el paquete.
 
-## Flags
+## Banderas (flags)
 
-A flag is a way to modify the behavior of a command. Cobra supports
-fully POSIX-compliant flags as well as the Go [flag package](https://golang.org/pkg/flag/).
-A Cobra command can define flags that persist through to children commands
-and flags that are only available to that command.
+Un flag es una forma de modificar el comportamiento de un comando. Cobra admite
+flags totalmente compatibles con POSIX, así como el paquete estándar `flag` de Go.
+Un comando de Cobra puede definir flags que se propaguen a los comandos hijo
+y flags que solo estén disponibles para ese comando.
 
-In the example above, 'port' is the flag.
+En el ejemplo anterior, `port` es el flag.
 
-Flag functionality is provided by the [pflag
-library](https://github.com/spf13/pflag), a fork of the flag standard library
-which maintains the same interface while adding POSIX compliance.
+La funcionalidad de las flags la proporciona la biblioteca `pflag`, un _fork_ de la biblioteca estándar `flag`
+que mantiene la misma interfaz y añade compatibilidad con POSIX.
 
-# Installing
-Using Cobra is easy. First, use `go get` to install the latest version
-of the library.
+
+# Instalación
+Usar Cobra es sencillo. Primero, utiliza `go get` para instalar la última versión
+de la biblioteca.
 
 ```
 go get -u github.com/spf13/cobra@latest
 ```
 
-Next, include Cobra in your application:
+Después, incluye Cobra en tu aplicación:
 
 ```go
 import "github.com/spf13/cobra"
 ```
+# Uso
+`cobra-cli` es un programa de línea de comandos para generar aplicaciones y archivos de comando basados en Cobra.
+Generará el andamiaje (_scaffolding_) de tu aplicación para desarrollar rápidamente
+una aplicación basada en Cobra. Es la manera más sencilla de incorporar Cobra a tu aplicación.
 
-# Usage
-`cobra-cli` is a command line program to generate cobra applications and command files.
-It will bootstrap your application scaffolding to rapidly
-develop a Cobra-based application. It is the easiest way to incorporate Cobra into your application.
-
-It can be installed by running:
+Se puede instalar ejecutando:
 
 ```
 go install github.com/spf13/cobra-cli@latest
 ```
 
-For complete details on using the Cobra-CLI generator, please read [The Cobra Generator README](https://github.com/spf13/cobra-cli/blob/main/README.md)
+Para obtener todos los detalles sobre el uso del generador Cobra-CLI, lee el archivo README de Cobra-CLI.
 
-For complete details on using the Cobra library, please read [The Cobra User Guide](site/content/user_guide.md).
+Para obtener todos los detalles sobre el uso de la biblioteca Cobra, lee la [Guía de usuario de Cobra](site/content/user_guide.md).
 
-# License
+# Licencia
 
-Cobra is released under the Apache 2.0 license. See [LICENSE.txt](LICENSE.txt)
+Cobra se distribuye bajo la licencia Apache 2.0. Consulta [LICENSE.txt](LICENSE.txt).
