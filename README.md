@@ -26,13 +26,13 @@ name a few. [This list](site/content/projects_using_cobra.md) contains a more ex
       <img alt="Warp sponsorship" width="400" src="https://github.com/user-attachments/assets/ab8dd143-b0fd-4904-bdc5-dd7ecac94eae">
    </a>
 
-### [Warp, the AI terminal for devs](https://www.warp.dev/cobra)
+### 🚀 [Warp, the AI terminal for devs](https://www.warp.dev/cobra)
 [Try Cobra in Warp today](https://www.warp.dev/cobra)<br>
 
 </div>
 <hr>
 
-# Overview
+# 📖 Overview
 
 Cobra is a library providing a simple interface to create powerful modern CLI
 interfaces similar to git & go tools.
@@ -52,7 +52,7 @@ Cobra provides:
 * The flexibility to define your own help, usage, etc.
 * Optional seamless integration with [viper](https://github.com/spf13/viper) for 12-factor apps
 
-# Concepts
+# 🧠 Concepts
 
 Cobra is built on a structure of commands, arguments & flags.
 
@@ -76,7 +76,7 @@ In this command we are telling Git to clone the url bare.
 
     git clone URL --bare
 
-## Commands
+## ⚙️ Commands
 
 Command is the central point of the application. Each interaction that
 the application supports will be contained in a Command. A command can
@@ -86,7 +86,7 @@ In the example above, 'server' is the command.
 
 [More about cobra.Command](https://pkg.go.dev/github.com/spf13/cobra#Command)
 
-## Flags
+## 🚩 Flags
 
 A flag is a way to modify the behavior of a command. Cobra supports
 fully POSIX-compliant flags as well as the Go [flag package](https://golang.org/pkg/flag/).
@@ -99,7 +99,7 @@ Flag functionality is provided by the [pflag
 library](https://github.com/spf13/pflag), a fork of the flag standard library
 which maintains the same interface while adding POSIX compliance.
 
-# Installing
+# 🛠️ Installing
 Using Cobra is easy. First, use `go get` to install the latest version
 of the library.
 
@@ -113,7 +113,7 @@ Next, include Cobra in your application:
 import "github.com/spf13/cobra"
 ```
 
-# Usage
+# 💡 Usage
 `cobra-cli` is a command line program to generate cobra applications and command files.
 It will bootstrap your application scaffolding to rapidly
 develop a Cobra-based application. It is the easiest way to incorporate Cobra into your application.
@@ -128,6 +128,6 @@ For complete details on using the Cobra-CLI generator, please read [The Cobra Ge
 
 For complete details on using the Cobra library, please read [The Cobra User Guide](site/content/user_guide.md).
 
-# License
+# 📄 License
 
 Cobra is released under the Apache 2.0 license. See [LICENSE.txt](LICENSE.txt)
